@@ -45,7 +45,7 @@ public class ArrayDictionary implements Dictionary {
 
     @Override
     public void remove(String key) {
-        // homework
+
     }
 
     @Override
