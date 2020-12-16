@@ -46,12 +46,25 @@ public class ArrayDictionary implements Dictionary {
 
     @Override
     public void remove(String key) {
+        //help from devglan.com with custom hashmap implementation
         int hashedKey = hashFunction(key);
-        KVEntry ptr = entries[hashedKey];
-        if(ptr.key == key){
+        KVEntry ptr1 = entries[hashedKey];
+        KVEntry ptr0 = null;
 
+        while(ptr1 != null){
+            if(ptr1.key == key){
+                if(ptr0 == null){
+                    ptr1 = ptr1.next;
+                    entries[hashedKey] = ptr1;
+                    return;
+                } else{
+                    ptr0.next = ptr1.next;
+                    return;
+                }
+            }
+            ptr0 = ptr1;
+            ptr1 = ptr1.next;
         }
-
     }
 
     @Override
