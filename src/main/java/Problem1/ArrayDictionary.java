@@ -1,5 +1,6 @@
 package Problem1;
 
+
 public class ArrayDictionary implements Dictionary {
     private KVEntry[] entries;
 
@@ -45,6 +46,11 @@ public class ArrayDictionary implements Dictionary {
 
     @Override
     public void remove(String key) {
+        int hashedKey = hashFunction(key);
+        KVEntry ptr = entries[hashedKey];
+        if(ptr.key == key){
+
+        }
 
     }
 
